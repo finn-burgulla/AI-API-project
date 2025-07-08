@@ -23,8 +23,15 @@ function getSystemPrompt(context) {
 
 // Helper function to call OpenAI API
 async function getOpenAIResponse(userPrompt) {
-  // Show a loading message while waiting for the AI
-  responseDiv.textContent = 'Thinking... Please wait.';
+  // Array of fun loading messages with emojis
+  const loadingMessages = [
+    'Thinking... Please wait. 🤔',
+    'Cooking up a response... 🍳',
+    'Getting something cool for you... ❄️'
+  ];
+  // Pick a random loading message
+  const randomIndex = Math.floor(Math.random() * loadingMessages.length);
+  responseDiv.textContent = loadingMessages[randomIndex];
 
   // Get the selected context
   const context = contextSelect.value;
